@@ -4,7 +4,7 @@ A library for iranian sms panels.
 ## Install
 **composer**
 ```php 
-composer require mmdm/sim-persian-sms
+composer require mmdm/sim-fa-sms
 ```
 
 Or you can simply download zip file from github and extract it, 
