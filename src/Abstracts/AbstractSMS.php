@@ -65,7 +65,7 @@ abstract class AbstractSMS implements ISMS
      */
     public function __set($name, $value)
     {
-        $this->parameters[$name] = $value;
+        $this->setParameter($name, $value);
     }
 
     /**
@@ -75,7 +75,7 @@ abstract class AbstractSMS implements ISMS
     public function __get($name)
     {
         if (array_key_exists($name, $this->parameters)) {
-            return $this->parameters[$name];
+            return $this->getParameter($name);
         }
 
         $trace = debug_backtrace();
@@ -85,6 +85,23 @@ abstract class AbstractSMS implements ISMS
             ' on line ' . $trace[0]['line'],
             E_USER_NOTICE);
         return null;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setParameter(string $parameter_name, &$parameter_value)
+    {
+        $this->parameters[$parameter_name] = $parameter_value;
+        return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getParameter(string $parameter_name, $prefer = null)
+    {
+        return $this->parameters[$parameter_name] ?? $prefer;
     }
 
     /**
