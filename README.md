@@ -185,6 +185,13 @@ For rest of methods please see documentation of the panel
 
 #### `getRecIds(): array`
  - Use with send method
+ 
+ ## Add new panel
+ 
+ To add a new panel you can implement `ISMS` interface.
+
+Or if you want to have some functionality you can extend `AbstractSMS` 
+and add your new functionality for new panel.
 
 # License
 Under MIT license.
