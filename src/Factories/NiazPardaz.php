@@ -173,23 +173,6 @@ class NiazPardaz extends AbstractSMS
 
     /**
      * {@inheritdoc}
-     */
-    public function setParameter(string $parameter_name, &$parameter_value)
-    {
-        $this->parameters[$parameter_name] = $parameter_value;
-        return $this;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getParameter(string $parameter_name, $prefer = null)
-    {
-        return $this->parameters[$parameter_name] ?? $prefer;
-    }
-
-    /**
-     * {@inheritdoc}
      * @throws SMSException
      */
     public function send(MessageProvider $message)
