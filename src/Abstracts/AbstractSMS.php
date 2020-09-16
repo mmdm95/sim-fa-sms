@@ -105,6 +105,43 @@ abstract class AbstractSMS implements ISMS
     }
 
     /**
+     *
+     * status array is like below
+     * [
+     *   'code' => operation code,
+     *   'message' => operation message
+     * ]
+     *
+     * or an array of status array
+     *
+     * [
+     *   [
+     *     'code' => operation code,
+     *     'message' => operation message
+     *   ],
+     *   [
+     *     'code' => operation code,
+     *     'message' => operation message
+     *   ],
+     *   ...
+     * ]
+     *
+     * {@inheritdoc}
+     */
+    public function getStatus(): array
+    {
+        return $this->status;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function isSuccessful(): bool
+    {
+        return $this->is_successful;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function onError(Closure $callback)
