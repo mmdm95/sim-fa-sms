@@ -612,32 +612,6 @@ class NiazPardaz extends AbstractSMS
     }
 
     /**
-     * If call <strong>send</strong> method and
-     * count of numbers is greater than 100, it'll
-     * return an associative array that contains
-     * array of array of statuses. Otherwise return
-     * status array like below
-     * [
-     *   'code' => operation code,
-     *   'message' => operation message
-     * ]
-     *
-     * {@inheritdoc}
-     */
-    public function getStatus(): array
-    {
-        return $this->status;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function isSuccessful(): bool
-    {
-        return $this->is_successful;
-    }
-
-    /**
      * Useful just after using send method
      *
      * @return array
