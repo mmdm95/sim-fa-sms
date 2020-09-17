@@ -28,7 +28,7 @@ class Curl
             CURLOPT_URL => $url,
             CURLOPT_CUSTOMREQUEST => $method,
             CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_SSL_VERIFYHOST => FALSE,
+            CURLOPT_SSL_VERIFYHOST => false,
             CURLOPT_POSTFIELDS => $data,
         ], $extra_options));
 
