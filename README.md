@@ -14,6 +14,14 @@ composer require mmdm/sim-fa-sms
 Or you can simply download zip file from github and extract it, 
 then put file to your project library and use it like other libraries.
 
+Just add line below to autoload files:
+
+```php
+require_once 'path_to_library/autoloader.php';
+```
+
+and you are good to go.
+
 ## How to use
 For convenient it has a factory class that can instantiate appropriate 
 class according to your panel. If there is no such panel type, it'll 
