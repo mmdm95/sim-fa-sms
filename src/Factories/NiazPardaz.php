@@ -180,7 +180,7 @@ class NiazPardaz extends AbstractSMS
         // check some functionality
         $this->checker();
 
-        if (!empty($message->getNumbers())) {
+        if (empty($message->getNumbers())) {
             throw new SMSException('Please specify numbers you want send message to');
         }
         if (empty($message->getBody())) {
