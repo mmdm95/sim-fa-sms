@@ -4,15 +4,9 @@ namespace Sim\SMS\Abstracts;
 
 use Closure;
 use Sim\SMS\Interfaces\ISMS;
-use Sim\SMS\SMSFactory;
-use Sim\SMS\Utils\Curl;
 
 abstract class AbstractSMS implements ISMS
 {
-    const ARABIC_NUMBERS = array('٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩');
-    const PERSIAN_NUMBERS = array('۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹');
-    const ENGLISH_NUMBERS = array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9');
-
     /**
      * @var array $parameters
      */
@@ -151,26 +145,11 @@ abstract class AbstractSMS implements ISMS
     }
 
     /**
-     * @param string $url
      * @param array $data
-     * @param string $method
-     * @param array $extra_options
-     * @return array
+     * @param string $url
+     * @return mixed
      */
-    protected function request(string $url, array $data, string $method = SMSFactory::METHOD_POST, array $extra_options = [])
-    {
-        $prevTimezone = date_default_timezone_get();
-
-        // set timezone to tehran - because it is a persian library
-        date_default_timezone_set("Asia/Tehran");
-
-        $response = Curl::request($url, $data, $method, $extra_options);
-
-        // reset timezone to original
-        date_default_timezone_set($prevTimezone);
-
-        return $response;
-    }
+    abstract protected function request(array $data, string $url);
 
     /**
      * Reset is successful variable to default

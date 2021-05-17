@@ -13,21 +13,19 @@ class SMSFactory
     const METHOD_GET = 'GET';
     const METHOD_CONNECT = 'CONNECT';
 
-    // NiazPardaz sms panel constants
-    const NIAZPARDAZ_SEND_SUCCESSFUL = 0;
-
     // SMS panels constants
     const PANEL_NIAZPARDAZ = 1;
 
     /**
      * @param int $type
+     * @param array $data
      * @return NiazPardaz|null
      */
-    public static function instance(int $type)
+    public static function instance(int $type, ...$data)
     {
         switch ($type) {
             case self::PANEL_NIAZPARDAZ:
-                return new NiazPardaz();
+                return new NiazPardaz(...$data);
             default:
                 return null;
         }

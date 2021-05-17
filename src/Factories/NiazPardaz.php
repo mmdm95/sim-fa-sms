@@ -241,7 +241,7 @@ class NiazPardaz extends AbstractSMS
         if ($mustSlice == $successCount) {
             $this->is_successful = true;
         } else { // call error closure
-            if($this->error_callback instanceof Closure) {
+            if ($this->error_callback instanceof Closure) {
                 call_user_func_array($this->error_callback, [$this->status['code'], $this->status['message'], $parameters]);
             }
         }
@@ -619,6 +619,16 @@ class NiazPardaz extends AbstractSMS
     public function getRecIds(): array
     {
         return $this->rec_ids;
+    }
+
+    /**
+     * @param array $data
+     * @param string $url
+     * @return mixed
+     */
+    protected function request(array $data, string $url)
+    {
+        return null;
     }
 
     /**

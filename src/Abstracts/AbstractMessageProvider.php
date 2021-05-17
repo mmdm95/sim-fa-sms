@@ -6,6 +6,10 @@ use Sim\SMS\Interfaces\IMessageProvider;
 
 abstract class AbstractMessageProvider implements IMessageProvider
 {
+    const ARABIC_NUMBERS = array('٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩');
+    const PERSIAN_NUMBERS = array('۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹');
+    const ENGLISH_NUMBERS = array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9');
+
     /**
      * @param array $numbers
      * @return array
@@ -42,8 +46,8 @@ abstract class AbstractMessageProvider implements IMessageProvider
         }
 
         if (is_string($numbers)) {
-            $numbers = str_replace(AbstractSMS::PERSIAN_NUMBERS, AbstractSMS::ENGLISH_NUMBERS, $numbers);
-            $numbers = str_replace(AbstractSMS::ARABIC_NUMBERS, AbstractSMS::ENGLISH_NUMBERS, $numbers);
+            $numbers = str_replace(self::PERSIAN_NUMBERS, self::ENGLISH_NUMBERS, $numbers);
+            $numbers = str_replace(self::ARABIC_NUMBERS, self::ENGLISH_NUMBERS, $numbers);
         }
 
         return $numbers;
