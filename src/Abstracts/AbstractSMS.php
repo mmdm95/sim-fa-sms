@@ -44,6 +44,11 @@ abstract class AbstractSMS implements ISMS
     ];
 
     /**
+     * @var string
+     */
+    protected $panel_name = 'unknown';
+
+    /**
      * @var string $unknown_message
      */
     protected $unknown_message = 'خطای نامشخص';
@@ -52,6 +57,14 @@ abstract class AbstractSMS implements ISMS
      * @var Closure|null $error_callback
      */
     protected $error_callback = null;
+
+    /**
+     * @return string
+     */
+    public function getPanelName(): string
+    {
+        return $this->panel_name;
+    }
 
     /**
      * @param $name

@@ -119,6 +119,11 @@ class NiazPardaz extends AbstractSMS
     ];
 
     /**
+     * @var string
+     */
+    protected $panel_name = 'niazpardaz';
+
+    /**
      * @var Soap|null $client
      */
     protected $client = null;
