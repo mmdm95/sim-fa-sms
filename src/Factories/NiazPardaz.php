@@ -194,9 +194,9 @@ class NiazPardaz extends AbstractSMS
 
         // define needed parameters
         $parameters = [
-            'userName' => $this->getParameter('userName') ?: $this->username,
-            'password' => $this->getParameter('password') ?: $this->password,
-            'fromNumber' => $this->getParameter('fromNumber'),
+            'userName' => $this->getParameter('userName', $this->username),
+            'password' => $this->getParameter('password', $this->password),
+            'fromNumber' => $this->getParameter('fromNumber', $this->from_number),
             'messageContent' => $message->getBody(),
             'isFlash' => $this->getParameter('isFlash'),
         ];
